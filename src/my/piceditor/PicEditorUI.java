@@ -5,6 +5,7 @@
  */
 package my.piceditor;
 
+import java.io.File;
 import javax.swing.JFileChooser;
 
 /**
@@ -72,9 +73,18 @@ public class PicEditorUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //Make the file chooser
         final JFileChooser fc = new JFileChooser();
-       
         int returnVal = fc.showOpenDialog(PicEditorUI.this);
+        
+        //Get file from window
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = fc.getSelectedFile();
+            //Open the file
+            System.out.println("Opening: " + file.getName() + ".\n");
+        } else {
+            System.out.println("Open command cancelled by user.\n");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
